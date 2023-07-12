@@ -242,7 +242,7 @@ void CScreencopyProtocolManager::captureOutput(wl_client* client, wl_resource* r
     wlr_box_transform(&PFRAME->box, &PFRAME->box, PFRAME->pMonitor->transform, ow, oh);
     scaleBox(&PFRAME->box, PFRAME->pMonitor->scale);
 
-    PFRAME->shmStride = (PSHMINFO->bpp / 8) * PFRAME->box.width;
+    PFRAME->shmStride = (PSHMINFO->bpp / 10) * PFRAME->box.width;
 
     zwlr_screencopy_frame_v1_send_buffer(PFRAME->resource, convert_drm_format_to_wl_shm(PFRAME->shmFormat), PFRAME->box.width, PFRAME->box.height, PFRAME->shmStride);
 
